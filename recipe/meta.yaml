@@ -10,7 +10,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 0
+  number: 1
   run_exports:
     # _Amazing_ backwards compatibility so pin to major number:
     #    https://abi-laboratory.pro/tracker/timeline/libidn2/
@@ -24,7 +24,7 @@ requirements:
     - make
     - pkg-config
   host:
-    - gettext
+    - libintl-devel  # [not linux]
     - libunistring
 
 test:
