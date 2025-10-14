@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://ftp.gnu.org/gnu/libidn/libidn2-{{ version }}.tar.gz
+  url: https://gitlab.com/libidn/libidn2/-/archive/v{{ version }}/libidn2-v{{ version }}.tar.gz
   sha256: f557911bf6171621e1f72ff35f5b1825bb35b52ed45325dcdee931e5d3c0787a
 
 build:
