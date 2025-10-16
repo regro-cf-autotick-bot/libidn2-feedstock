@@ -5,12 +5,17 @@ package:
   version: {{ version }}
 
 source:
+  # The gnu ftp server makes us fail on download many times...
+  # The gitlab source doesn't contain the result of build which end up requiring
+  # some automake tools to guess the version from git..
   url: https://ftp.gnu.org/gnu/libidn/libidn2-{{ version }}.tar.gz
   sha256: f557911bf6171621e1f72ff35f5b1825bb35b52ed45325dcdee931e5d3c0787a
+  # url: https://gitlab.com/libidn/libidn2/-/archive/v{{ version }}/libidn2-v{{ version }}.tar.gz
+  # sha256: 304933ffe87d7ed0288561983d3c63d128cda533ef1942ce2aa57876f30f2391
 
 build:
   skip: true  # [win]
-  number: 1
+  number: 2
   run_exports:
     # _Amazing_ backwards compatibility so pin to major number:
     #    https://abi-laboratory.pro/tracker/timeline/libidn2/
@@ -23,6 +28,7 @@ requirements:
     - {{ stdlib('c') }}
     - make
     - pkg-config
+    - gettext-tools
   host:
     - libintl-devel  # [not linux]
     - libunistring
